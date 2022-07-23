@@ -158,7 +158,11 @@ class AssignmentExpressionResolver implements Resolver
     private function walkSubscriptExpression(NodeContextResolver $resolver, Frame $frame, SubscriptExpression $leftOperand, NodeContext $rightContext): void
     {
         if ($leftOperand->postfixExpression instanceof Variable) {
-            foreach ($frame->locals()->byName($leftOperand->postfixExpression->getName()) as $variable) {
+            $postfix = $leftOperand->postfixExpression->getName();
+            if (null === $postfix) {
+                return;
+            }
+            foreach ($frame->locals()->byName($postfix) as $variable) {
                 $type = $variable->type();
 
                 if (!$type instanceof ArrayLiteral) {
