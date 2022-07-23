@@ -6,6 +6,8 @@ use Phpactor\Indexer\Model\RecordReference;
 use Phpactor\Indexer\Model\RecordReferenceEnhancer;
 use Phpactor\Indexer\Model\Record\FileRecord;
 use Phpactor\Indexer\Model\Record\MemberRecord;
+use Phpactor\TextDocument\TextDocumentLocator;
+use Phpactor\TextDocument\TextDocumentUri;
 use Phpactor\WorseReflection\Core\Exception\NotFound;
 use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
 use Psr\Log\LoggerInterface;
@@ -18,10 +20,17 @@ class WorseRecordReferenceEnhancer implements RecordReferenceEnhancer
 
     private LoggerInterface $logger;
 
-    public function __construct(SourceCodeReflector $reflector, LoggerInterface $logger)
+    private TextDocumentLocator $locator;
+
+    public function __construct(
+        SourceCodeReflector $reflector,
+        TextDocumentLocator $locator,
+        LoggerInterface $logger
+    )
     {
         $this->reflector = $reflector;
         $this->logger = $logger;
+        $this->locator = $locator;
     }
 
     public function enhance(FileRecord $record, RecordReference $reference): RecordReference
@@ -35,9 +44,7 @@ class WorseRecordReferenceEnhancer implements RecordReferenceEnhancer
         }
 
         try {
-            // TODO: We should get the latest in-memory source, e.g. from the
-            // LS workspace. Perhaps add an adapter.
-            $contents = file_get_contents($record->filePath());
+            $contents = $this->locator->get(TextDocumentUri::fromString($record->filePath()));
         } catch (FilesystemException $error) {
             $this->logger->warning(sprintf(
                 'Record Enhancer: Could not read file "%s": %s',
