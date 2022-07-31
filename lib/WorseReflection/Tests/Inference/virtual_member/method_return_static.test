@@ -7,7 +7,7 @@ class Mailer
 {
 }
 
-class CoolMailer
+class CoolMailer extends Mailer
 {
 }
 
