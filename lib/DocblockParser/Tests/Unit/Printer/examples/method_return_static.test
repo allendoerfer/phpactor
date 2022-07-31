@@ -1,4 +1,14 @@
 /**
- * @method static sendMessage(string $text)
+ * @method static static sendMessage(string $text)
  */
 ---
+Docblock: = 
+ ElementList: = /**
+ * 
+  MethodTag: = @methodstatic
+   ClassNode: = staticsendMessage(
+   ParameterList: = 
+    ParameterTag: = 
+     ScalarNode: = string
+     VariableNode: = $text)
+ */

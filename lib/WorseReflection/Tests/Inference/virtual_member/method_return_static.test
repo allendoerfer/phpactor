@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @method static sendMessage(string $text)
+ * @method static static sendMessage(string $text)
  */
 class Mailer
 {
