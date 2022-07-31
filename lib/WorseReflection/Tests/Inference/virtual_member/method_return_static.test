@@ -14,5 +14,5 @@ class CoolMailer
 $mailer = new Mailer();
 $coolMailer = new CoolMailer();
 
-// wrAssertType('Mailer', $mailer->sendMessage('foo'));
-// wrAssertType('CoolMailer', $coolMailer->sendMessage('foo'));
+wrAssertType('Mailer', $mailer->sendMessage('foo'));
+wrAssertType('CoolMailer', $coolMailer->sendMessage('foo'));
