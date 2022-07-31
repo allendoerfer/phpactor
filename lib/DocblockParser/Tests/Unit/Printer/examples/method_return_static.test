@@ -1,0 +1,4 @@
+/**
+ * @method static sendMessage(string $text)
+ */
+---
