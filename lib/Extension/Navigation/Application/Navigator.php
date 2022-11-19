@@ -8,20 +8,12 @@ use Phpactor\Extension\CodeTransformExtra\Application\ClassNew;
 
 class Navigator
 {
-    private NavigatorInterface $navigator;
-
-    private ClassNew $classNew;
-
-    private array $autoCreateConfig;
-
     public function __construct(
-        NavigatorInterface $navigator,
-        ClassNew $classNew,
-        array $autoCreateConfig
-    ) {
-        $this->navigator = $navigator;
-        $this->classNew = $classNew;
-        $this->autoCreateConfig = $autoCreateConfig;
+        private NavigatorInterface $navigator,
+        private ClassNew $classNew,
+        private array $autoCreateConfig
+    )
+    {
     }
 
     public function destinationsFor(string $path)

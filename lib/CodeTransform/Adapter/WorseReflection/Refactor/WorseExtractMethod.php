@@ -32,20 +32,16 @@ use function prev;
 
 class WorseExtractMethod implements ExtractMethod
 {
-    private Reflector $reflector;
-
-    private Updater $updater;
-
     private Parser $parser;
 
-    private BuilderFactory $factory;
-
-    public function __construct(Reflector $reflector, BuilderFactory $factory, Updater $updater, Parser $parser = null)
+    public function __construct(
+        private Reflector $reflector,
+        private BuilderFactory $factory,
+        private Updater $updater,
+        Parser $parser = null
+    )
     {
-        $this->reflector = $reflector;
-        $this->updater = $updater;
         $this->parser = $parser ?: new Parser();
-        $this->factory = $factory;
     }
 
     public function canExtractMethod(SourceCode $source, int $offsetStart, int $offsetEnd): bool

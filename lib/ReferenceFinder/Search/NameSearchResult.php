@@ -7,17 +7,12 @@ use Phpactor\TextDocument\TextDocumentUri;
 
 final class NameSearchResult
 {
-    private NameSearchResultType $type;
-
-    private FullyQualifiedName $name;
-
-    private ?TextDocumentUri $uri;
-
-    private function __construct(NameSearchResultType $type, FullyQualifiedName $name, ?TextDocumentUri $uri = null)
+    private function __construct(
+        private NameSearchResultType $type,
+        private FullyQualifiedName $name,
+        private ?TextDocumentUri $uri = null
+    )
     {
-        $this->type = $type;
-        $this->name = $name;
-        $this->uri = $uri;
     }
 
     /**

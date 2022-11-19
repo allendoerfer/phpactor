@@ -20,16 +20,11 @@ use Phpactor\MapResolver\Resolver;
 
 class LanguageServerSessionExtension implements Extension
 {
-    private MessageTransmitter $transmitter;
-
-    private InitializeParams $initializeParams;
-
     public function __construct(
-        MessageTransmitter $transmitter,
-        InitializeParams $initializeParams
-    ) {
-        $this->transmitter = $transmitter;
-        $this->initializeParams = $initializeParams;
+        private MessageTransmitter $transmitter,
+        private InitializeParams $initializeParams
+    )
+    {
     }
 
 

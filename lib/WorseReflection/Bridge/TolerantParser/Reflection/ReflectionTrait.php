@@ -21,17 +21,6 @@ use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionMemberCollecti
 
 class ReflectionTrait extends AbstractReflectionClass implements CoreReflectionTrait
 {
-    private ServiceLocator $serviceLocator;
-
-    private TraitDeclaration $node;
-
-    private SourceCode $sourceCode;
-
-    /**
-     * @var array<string,bool>
-     */
-    private array $visited;
-
     private ?ClassLikeReflectionMemberCollection $ownMembers = null;
 
     private ?ClassLikeReflectionMemberCollection $members = null;
@@ -40,15 +29,12 @@ class ReflectionTrait extends AbstractReflectionClass implements CoreReflectionT
      * @param array<string,bool> $visited
      */
     public function __construct(
-        ServiceLocator $serviceLocator,
-        SourceCode $sourceCode,
-        TraitDeclaration $node,
-        array $visited = []
-    ) {
-        $this->serviceLocator = $serviceLocator;
-        $this->node = $node;
-        $this->sourceCode = $sourceCode;
-        $this->visited = $visited;
+        private ServiceLocator $serviceLocator,
+        private SourceCode $sourceCode,
+        private TraitDeclaration $node,
+        private array $visited = []
+    )
+    {
     }
 
     public function methods(ReflectionClassLike $contextClass = null): CoreReflectionMethodCollection

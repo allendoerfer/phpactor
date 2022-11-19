@@ -11,17 +11,12 @@ use SplFileInfo;
 
 class ClassSearch
 {
-    private FileToClass $fileToClass;
-
-    private FilesystemRegistry $filesystemRegistry;
-
-    private Reflector $reflector;
-
-    public function __construct(FilesystemRegistry $filesystemRegistry, FileToClass $fileToClass, Reflector $reflector)
+    public function __construct(
+        private FilesystemRegistry $filesystemRegistry,
+        private FileToClass $fileToClass,
+        private Reflector $reflector
+    )
     {
-        $this->filesystemRegistry = $filesystemRegistry;
-        $this->fileToClass = $fileToClass;
-        $this->reflector = $reflector;
     }
 
     public function classSearch(string $filesystemName, string $name)

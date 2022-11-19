@@ -15,17 +15,12 @@ use Phpactor\TextDocument\TextDocumentBuilder;
 
 class GotoImplementationHandler implements Handler, CanRegisterCapabilities
 {
-    private Workspace $workspace;
-
-    private ClassImplementationFinder $finder;
-
-    private LocationConverter $locationConverter;
-
-    public function __construct(Workspace $workspace, ClassImplementationFinder $finder, LocationConverter $locationConverter)
+    public function __construct(
+        private Workspace $workspace,
+        private ClassImplementationFinder $finder,
+        private LocationConverter $locationConverter
+    )
     {
-        $this->workspace = $workspace;
-        $this->finder = $finder;
-        $this->locationConverter = $locationConverter;
     }
 
 

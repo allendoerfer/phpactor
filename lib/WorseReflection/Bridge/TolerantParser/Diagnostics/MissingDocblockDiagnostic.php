@@ -8,32 +8,15 @@ use Phpactor\WorseReflection\Core\DiagnosticSeverity;
 
 class MissingDocblockDiagnostic implements Diagnostic
 {
-    private string $message;
-
-    private DiagnosticSeverity $severity;
-
-    private ByteOffsetRange $range;
-
-    private string $classType;
-
-    private string $methodName;
-
-    private string $actualReturnType;
-
     public function __construct(
-        ByteOffsetRange $range,
-        string $message,
-        DiagnosticSeverity $severity,
-        string $classType,
-        string $methodName,
-        string $actualReturnType
-    ) {
-        $this->message = $message;
-        $this->severity = $severity;
-        $this->range = $range;
-        $this->classType = $classType;
-        $this->methodName = $methodName;
-        $this->actualReturnType = $actualReturnType;
+        private ByteOffsetRange $range,
+        private string $message,
+        private DiagnosticSeverity $severity,
+        private string $classType,
+        private string $methodName,
+        private string $actualReturnType
+    )
+    {
     }
 
     public function range(): ByteOffsetRange

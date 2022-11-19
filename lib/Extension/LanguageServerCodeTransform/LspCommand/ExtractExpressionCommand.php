@@ -19,20 +19,12 @@ class ExtractExpressionCommand implements Command
     public const NAME  = 'extract_expression';
     public const DEFAULT_VARIABLE_NAME  = 'newVariable';
 
-    private ClientApi $clientApi;
-
-    private Workspace $workspace;
-
-    private ExtractExpression $extractExpression;
-
     public function __construct(
-        ClientApi $clientApi,
-        Workspace $workspace,
-        ExtractExpression $extractExpression
-    ) {
-        $this->clientApi = $clientApi;
-        $this->workspace = $workspace;
-        $this->extractExpression = $extractExpression;
+        private ClientApi $clientApi,
+        private Workspace $workspace,
+        private ExtractExpression $extractExpression
+    )
+    {
     }
 
     /**

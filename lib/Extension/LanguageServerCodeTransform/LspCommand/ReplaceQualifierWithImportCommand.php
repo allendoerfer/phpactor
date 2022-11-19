@@ -17,20 +17,12 @@ class ReplaceQualifierWithImportCommand implements Command
 {
     public const NAME = 'replace_qualifier_with_import';
 
-    private ClientApi $clientApi;
-
-    private Workspace $workspace;
-
-    private ReplaceQualifierWithImport $replaceQualifierWithImport;
-
     public function __construct(
-        ClientApi $clientApi,
-        Workspace $workspace,
-        ReplaceQualifierWithImport $replaceQualifierWithImport
-    ) {
-        $this->clientApi = $clientApi;
-        $this->workspace = $workspace;
-        $this->replaceQualifierWithImport = $replaceQualifierWithImport;
+        private ClientApi $clientApi,
+        private Workspace $workspace,
+        private ReplaceQualifierWithImport $replaceQualifierWithImport
+    )
+    {
     }
 
     /**

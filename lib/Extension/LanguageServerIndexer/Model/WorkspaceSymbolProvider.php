@@ -21,17 +21,12 @@ use Phpactor\TextDocument\TextDocumentUri;
 
 final class WorkspaceSymbolProvider
 {
-    private SearchClient $client;
-
-    private TextDocumentLocator $locator;
-
-    private int $limit;
-
-    public function __construct(SearchClient $client, TextDocumentLocator $locator, int $limit)
+    public function __construct(
+        private SearchClient $client,
+        private TextDocumentLocator $locator,
+        private int $limit
+    )
     {
-        $this->client = $client;
-        $this->locator = $locator;
-        $this->limit = $limit;
     }
 
     /**

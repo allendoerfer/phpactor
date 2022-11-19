@@ -15,14 +15,11 @@ use Phpactor\WorseReflection\Core\Type\ClassType;
 
 class ScopedPropertyAccessResolver implements Resolver
 {
-    private NodeToTypeConverter $nodeTypeConverter;
-
-    private NodeContextFromMemberAccess $nodeContextFromMemberAccess;
-
-    public function __construct(NodeToTypeConverter $nodeTypeConverter, NodeContextFromMemberAccess $nodeContextFromMemberAccess)
+    public function __construct(
+        private NodeToTypeConverter $nodeTypeConverter,
+        private NodeContextFromMemberAccess $nodeContextFromMemberAccess
+    )
     {
-        $this->nodeTypeConverter = $nodeTypeConverter;
-        $this->nodeContextFromMemberAccess = $nodeContextFromMemberAccess;
     }
 
     public function resolve(NodeContextResolver $resolver, Frame $frame, Node $node): NodeContext

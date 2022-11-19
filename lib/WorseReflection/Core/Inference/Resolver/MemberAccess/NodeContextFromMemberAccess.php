@@ -38,20 +38,14 @@ use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
 
 class NodeContextFromMemberAccess
 {
-    private GenericMapResolver $resolver;
-
-    /**
-     * @var MemberContextResolver[]
-     */
-    private array $memberResolvers;
-
     /**
      * @param MemberContextResolver[] $memberResolvers
      */
-    public function __construct(GenericMapResolver $resolver, array $memberResolvers)
+    public function __construct(
+        private GenericMapResolver $resolver,
+        private array $memberResolvers
+    )
     {
-        $this->resolver = $resolver;
-        $this->memberResolvers = $memberResolvers;
     }
 
     public function infoFromMemberAccess(NodeContextResolver $resolver, Frame $frame, Type $classType, Node $node): NodeContext

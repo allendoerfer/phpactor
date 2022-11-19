@@ -14,34 +14,17 @@ use Psr\Log\LoggerInterface;
 
 class NodeContextResolver
 {
-    private Reflector $reflector;
-
-    private LoggerInterface $logger;
-
-    /**
-     * @var array<class-name,Resolver>
-     */
-    private array $resolverMap;
-
-    private Cache $cache;
-
-    private DocBlockFactory $docblockFactory;
-
     /**
      * @param array<class-name,Resolver> $resolverMap
      */
     public function __construct(
-        Reflector $reflector,
-        DocBlockFactory $docblockFactory,
-        LoggerInterface $logger,
-        Cache $cache,
-        array $resolverMap = []
-    ) {
-        $this->logger = $logger;
-        $this->reflector = $reflector;
-        $this->resolverMap = $resolverMap;
-        $this->cache = $cache;
-        $this->docblockFactory = $docblockFactory;
+        private Reflector $reflector,
+        private DocBlockFactory $docblockFactory,
+        private LoggerInterface $logger,
+        private Cache $cache,
+        private array $resolverMap = []
+    )
+    {
     }
 
     public function withCache(Cache $cache):self

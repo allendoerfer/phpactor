@@ -29,32 +29,15 @@ use RuntimeException;
 
 final class ClassRenamer implements Renamer
 {
-    private NameToUriConverter $newNameToUriConverter;
-
-    private NameToUriConverter $oldNameToUriConverter;
-
-    private ReferenceFinder $referenceFinder;
-
-    private TextDocumentLocator $locator;
-
-    private Parser $parser;
-
-    private ClassMover $classMover;
-
     public function __construct(
-        NameToUriConverter $oldNameToUriConverter,
-        NameToUriConverter $newNameToUriConverter,
-        ReferenceFinder $referenceFinder,
-        TextDocumentLocator $locator,
-        Parser $parser,
-        ClassMover $classMover
-    ) {
-        $this->oldNameToUriConverter = $oldNameToUriConverter;
-        $this->newNameToUriConverter = $newNameToUriConverter;
-        $this->referenceFinder = $referenceFinder;
-        $this->locator = $locator;
-        $this->parser = $parser;
-        $this->classMover = $classMover;
+        private NameToUriConverter $oldNameToUriConverter,
+        private NameToUriConverter $newNameToUriConverter,
+        private ReferenceFinder $referenceFinder,
+        private TextDocumentLocator $locator,
+        private Parser $parser,
+        private ClassMover $classMover
+    )
+    {
     }
 
     public function getRenameRange(TextDocument $textDocument, ByteOffset $offset): ?ByteOffsetRange

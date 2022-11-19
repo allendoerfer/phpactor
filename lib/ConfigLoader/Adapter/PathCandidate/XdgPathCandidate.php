@@ -8,20 +8,13 @@ use XdgBaseDir\Xdg;
 
 class XdgPathCandidate implements PathCandidate
 {
-    private Xdg $xdg;
-
-    private string $filename;
-
-    private string $loader;
-
-    private string $appName;
-
-    public function __construct(string $appName, string $filename, string $loader, Xdg $xdg = null)
+    public function __construct(
+        private string $appName,
+        private string $filename,
+        private string $loader,
+        private Xdg $xdg
+    )
     {
-        $this->xdg = $xdg ?: new Xdg();
-        $this->filename = $filename;
-        $this->loader = $loader;
-        $this->appName = $appName;
     }
 
     public function path(): string

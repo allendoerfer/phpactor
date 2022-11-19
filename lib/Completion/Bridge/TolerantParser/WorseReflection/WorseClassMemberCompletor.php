@@ -30,24 +30,13 @@ use Microsoft\PhpParser\Node\Expression\ScopedPropertyAccessExpression;
 
 class WorseClassMemberCompletor implements TolerantCompletor, TolerantQualifiable
 {
-    private Reflector $reflector;
-
-    private ObjectFormatter $formatter;
-
-    private ObjectFormatter $snippetFormatter;
-
-    private ObjectRenderer $objectRenderer;
-
     public function __construct(
-        Reflector $reflector,
-        ObjectFormatter $formatter,
-        ObjectFormatter $snippetFormatter,
-        ObjectRenderer $objectRenderer
-    ) {
-        $this->reflector = $reflector;
-        $this->formatter = $formatter;
-        $this->snippetFormatter = $snippetFormatter;
-        $this->objectRenderer = $objectRenderer;
+        private Reflector $reflector,
+        private ObjectFormatter $formatter,
+        private ObjectFormatter $snippetFormatter,
+        private ObjectRenderer $objectRenderer
+    )
+    {
     }
 
     public function qualifier(): TolerantQualifier

@@ -17,24 +17,13 @@ use Phpactor\WorseReflection\TypeUtil;
 
 class ReflectionConstant extends AbstractReflectionClassMember implements CoreReflectionConstant
 {
-    private ServiceLocator $serviceLocator;
-
-    private ConstElement $node;
-
-    private ReflectionClassLike $class;
-
-    private ClassConstDeclaration $declaration;
-
     public function __construct(
-        ServiceLocator $serviceLocator,
-        ReflectionClassLike $class,
-        ClassConstDeclaration $declaration,
-        ConstElement $node
-    ) {
-        $this->serviceLocator = $serviceLocator;
-        $this->node = $node;
-        $this->class = $class;
-        $this->declaration = $declaration;
+        private ServiceLocator $serviceLocator,
+        private ReflectionClassLike $class,
+        private ClassConstDeclaration $declaration,
+        private ConstElement $node
+    )
+    {
     }
 
     public function name(): string

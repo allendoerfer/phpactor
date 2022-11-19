@@ -23,20 +23,12 @@ class PropertyAccessGeneratorHandler extends AbstractHandler
     const PARAM_PATH = 'path';
     const PARAM_OFFSET = 'offset';
 
-    private string $name;
-
-    private Reflector $reflector;
-
-    private PropertyAccessGenerator $propertyAccessGenerator;
-
     public function __construct(
-        string $name,
-        Reflector $reflector,
-        PropertyAccessGenerator $propertyAccessGenerator
-    ) {
-        $this->name = $name;
-        $this->reflector = $reflector;
-        $this->propertyAccessGenerator = $propertyAccessGenerator;
+        private string $name,
+        private Reflector $reflector,
+        private PropertyAccessGenerator $propertyAccessGenerator
+    )
+    {
     }
 
     public function name(): string

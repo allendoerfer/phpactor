@@ -19,8 +19,6 @@ class FileRepository
      */
     private const BATCH_SIZE = 10000;
 
-    private string $path;
-
     private int $lastUpdate;
 
     private LoggerInterface $logger;
@@ -32,14 +30,14 @@ class FileRepository
 
     private int $counter = 0;
 
-    private RecordSerializer $serializer;
-
-    public function __construct(string $path, RecordSerializer $serializer, ?LoggerInterface $logger = null)
+    public function __construct(
+        private string $path,
+        private RecordSerializer $serializer,
+        ?LoggerInterface $logger = null
+    )
     {
-        $this->path = $path;
         $this->initializeLastUpdate();
         $this->logger = $logger ?: new NullLogger();
-        $this->serializer = $serializer;
     }
 
     public function put(Record $record): void

@@ -20,24 +20,13 @@ use Phpactor\TextDocument\TextDocumentBuilder;
 
 class GotoDefinitionHandler implements Handler, CanRegisterCapabilities
 {
-    private DefinitionLocator $definitionLocator;
-
-    private Workspace $workspace;
-
-    private LocationConverter $locationConverter;
-
-    private ClientApi $clientApi;
-
     public function __construct(
-        Workspace $workspace,
-        DefinitionLocator $definitionLocator,
-        LocationConverter $locationConverter,
-        ClientApi $clientApi
-    ) {
-        $this->definitionLocator = $definitionLocator;
-        $this->workspace = $workspace;
-        $this->locationConverter = $locationConverter;
-        $this->clientApi = $clientApi;
+        private Workspace $workspace,
+        private DefinitionLocator $definitionLocator,
+        private LocationConverter $locationConverter,
+        private ClientApi $clientApi
+    )
+    {
     }
 
     public function methods(): array

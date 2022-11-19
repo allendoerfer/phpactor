@@ -20,17 +20,12 @@ use Phpactor\WorseReflection\Core\Util\NodeUtil;
 
 class ReflectionFunction extends AbstractReflectedNode implements CoreReflectionFunction
 {
-    private ServiceLocator $serviceLocator;
-
-    private FunctionDeclaration $node;
-
-    private SourceCode $sourceCode;
-
-    public function __construct(SourceCode $sourceCode, ServiceLocator $serviceLocator, FunctionDeclaration $node)
+    public function __construct(
+        private SourceCode $sourceCode,
+        private ServiceLocator $serviceLocator,
+        private FunctionDeclaration $node
+    )
     {
-        $this->serviceLocator = $serviceLocator;
-        $this->node = $node;
-        $this->sourceCode = $sourceCode;
     }
 
     public function name(): Name

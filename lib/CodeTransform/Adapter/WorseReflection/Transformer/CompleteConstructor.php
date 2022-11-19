@@ -21,17 +21,12 @@ use Phpactor\CodeBuilder\Domain\Code;
 
 class CompleteConstructor implements Transformer
 {
-    private Reflector $reflector;
-
-    private Updater $updater;
-
-    private string $visibility;
-
-    public function __construct(Reflector $reflector, Updater $updater, string $visiblity)
+    public function __construct(
+        private Reflector $reflector,
+        private Updater $updater,
+        private string $visibility
+    )
     {
-        $this->updater = $updater;
-        $this->reflector = $reflector;
-        $this->visibility = $visiblity;
     }
 
     public function transform(SourceCode $source): TextEdits

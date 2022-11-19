@@ -25,14 +25,11 @@ use Phpactor\WorseReflection\Reflector;
 
 class WorseNamedParameterCompletor implements TolerantCompletor
 {
-    private Reflector $reflector;
-
-    private ObjectFormatter $formatter;
-
-    public function __construct(Reflector $reflector, ObjectFormatter $formatter)
+    public function __construct(
+        private Reflector $reflector,
+        private ObjectFormatter $formatter
+    )
     {
-        $this->reflector = $reflector;
-        $this->formatter = $formatter;
     }
 
 

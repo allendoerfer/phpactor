@@ -18,20 +18,12 @@ use RuntimeException;
 
 class ReflectionEnumCase extends AbstractReflectionClassMember implements CoreReflectionEnumCase
 {
-    private ServiceLocator $serviceLocator;
-
-    private EnumCaseDeclaration $node;
-
-    private ReflectionEnum $enum;
-
     public function __construct(
-        ServiceLocator $serviceLocator,
-        ReflectionEnum $class,
-        EnumCaseDeclaration $node
-    ) {
-        $this->serviceLocator = $serviceLocator;
-        $this->node = $node;
-        $this->enum = $class;
+        private ServiceLocator $serviceLocator,
+        private ReflectionEnum $enum,
+        private EnumCaseDeclaration $node
+    )
+    {
     }
 
     public function name(): string

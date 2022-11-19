@@ -14,16 +14,11 @@ use Phpactor\TextDocument\TextDocument;
 
 class UseNameCompletor implements TolerantCompletor
 {
-    private NameSearcher $nameSearcher;
-
-    private DocumentPrioritizer $prioritizer;
-
     public function __construct(
-        NameSearcher $nameSearcher,
-        DocumentPrioritizer $prioritizer
-    ) {
-        $this->nameSearcher = $nameSearcher;
-        $this->prioritizer = $prioritizer;
+        private NameSearcher $nameSearcher,
+        private DocumentPrioritizer $prioritizer
+    )
+    {
     }
 
 

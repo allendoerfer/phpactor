@@ -14,14 +14,11 @@ use Phpactor\LanguageServer\Core\Workspace\Workspace;
 
 class DocumentSymbolProviderHandler implements Handler, CanRegisterCapabilities
 {
-    private Workspace $workspace;
-
-    private DocumentSymbolProvider $provider;
-
-    public function __construct(Workspace $workspace, DocumentSymbolProvider $provider)
+    public function __construct(
+        private Workspace $workspace,
+        private DocumentSymbolProvider $provider
+    )
     {
-        $this->workspace = $workspace;
-        $this->provider = $provider;
     }
 
 

@@ -27,26 +27,15 @@ use RuntimeException;
 
 abstract class AbstractReflectionMethodCall implements CoreReflectionMethodCall
 {
-    private Frame $frame;
-
-    /**
-     * @var ScopedPropertyAccessExpression|MemberAccessExpression
-     */
-    private $node;
-
-    private ServiceLocator $services;
-
     /**
      * @param ScopedPropertyAccessExpression|MemberAccessExpression $node
      */
     public function __construct(
-        ServiceLocator $services,
-        Frame $frame,
-        Node $node
-    ) {
-        $this->services = $services;
-        $this->frame = $frame;
-        $this->node = $node;
+        private ServiceLocator $services,
+        private Frame $frame,
+        private Node $node
+    )
+    {
     }
 
     public function position(): Position
