@@ -16,8 +16,7 @@ class AbstractClassGenerator
         protected ClassFileNormalizer $normalizer,
         protected Generators $generators,
         LoggerInterface $logger = null
-    )
-    {
+    ) {
         $this->logger = $logger ?: new NullLogger();
     }
 

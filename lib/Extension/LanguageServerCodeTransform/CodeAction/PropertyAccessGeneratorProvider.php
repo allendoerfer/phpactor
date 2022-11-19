@@ -22,8 +22,7 @@ class PropertyAccessGeneratorProvider implements CodeActionProvider
         private string $command,
         private string $generatorRole,
         private Reflector $reflector
-    )
-    {
+    ) {
     }
 
     public function kinds(): array

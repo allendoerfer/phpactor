@@ -16,8 +16,7 @@ class ValidatingSearchIndex implements SearchIndex
         private SearchIndex $innerIndex,
         private IndexAccess $index,
         private LoggerInterface $logger
-    )
-    {
+    ) {
     }
 
 

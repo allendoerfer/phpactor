@@ -27,8 +27,7 @@ class IndexedReferenceFinder implements ReferenceFinder
         private Reflector $reflector,
         ?ContainerTypeResolver $containerTypeResolver = null,
         private bool $deepReferences = true
-    )
-    {
+    ) {
         $this->containerTypeResolver = $containerTypeResolver ?: new ContainerTypeResolver($reflector);
     }
 

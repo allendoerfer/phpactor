@@ -8,8 +8,7 @@ class StandardTextDocument implements TextDocument
         private TextDocumentLanguage $language,
         private string $text,
         private ?TextDocumentUri $uri = null
-    )
-    {
+    ) {
     }
 
     public function __toString()

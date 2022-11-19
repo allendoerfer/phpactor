@@ -29,8 +29,7 @@ class ScfClassCompletor implements TolerantCompletor, TolerantQualifiable
         private Filesystem $filesystem,
         private FileToClass $fileToClass,
         ?ClassQualifier $qualifier = null
-    )
-    {
+    ) {
         $this->qualifier = $qualifier ?: new ClassQualifier();
     }
 

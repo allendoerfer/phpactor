@@ -24,8 +24,7 @@ class WorseFunctionCompletor implements TolerantCompletor
         private Reflector $reflector,
         private ObjectFormatter $formatter,
         private ObjectFormatter $snippetFormatter
-    )
-    {
+    ) {
     }
 
     public function complete(Node $node, TextDocument $source, ByteOffset $offset): Generator

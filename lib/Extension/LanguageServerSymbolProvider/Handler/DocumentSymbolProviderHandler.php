@@ -17,8 +17,7 @@ class DocumentSymbolProviderHandler implements Handler, CanRegisterCapabilities
     public function __construct(
         private Workspace $workspace,
         private DocumentSymbolProvider $provider
-    )
-    {
+    ) {
     }
 
 

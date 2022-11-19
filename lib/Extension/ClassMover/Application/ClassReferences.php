@@ -20,8 +20,7 @@ class ClassReferences
         private ClassFinder $refFinder,
         private ClassReplacer $refReplacer,
         private FilesystemRegistry $filesystemRegistry
-    )
-    {
+    ) {
     }
 
     public function replaceReferences(string $filesystemName, string $class, string $replace, bool $dryRun)

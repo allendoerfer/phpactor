@@ -24,8 +24,7 @@ class GenerateMethodCommand implements Command
         private Workspace $workspace,
         private GenerateMethod $generateMethod,
         private TextDocumentLocator $locator
-    )
-    {
+    ) {
     }
 
     /**

@@ -28,8 +28,7 @@ class CreateUnresolvableClassProvider implements CodeActionProvider
         private SourceCodeReflector $reflector,
         private Generators $generators,
         private ClassToFile $classToFile
-    )
-    {
+    ) {
     }
 
     public function provideActionsFor(TextDocumentItem $textDocument, Range $range, CancellationToken $cancel): Promise

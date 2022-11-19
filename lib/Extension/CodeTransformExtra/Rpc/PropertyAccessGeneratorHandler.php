@@ -27,8 +27,7 @@ class PropertyAccessGeneratorHandler extends AbstractHandler
         private string $name,
         private Reflector $reflector,
         private PropertyAccessGenerator $propertyAccessGenerator
-    )
-    {
+    ) {
     }
 
     public function name(): string

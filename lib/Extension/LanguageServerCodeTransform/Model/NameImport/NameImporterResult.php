@@ -15,8 +15,7 @@ class NameImporterResult
         private ?NameImport $nameImport,
         private ?array $textEdits,
         private ?Throwable $error
-    )
-    {
+    ) {
     }
 
     public function hasTextEdits(): bool

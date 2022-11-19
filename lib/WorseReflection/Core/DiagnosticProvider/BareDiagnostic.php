@@ -12,8 +12,7 @@ class BareDiagnostic implements Diagnostic
         private ByteOffsetRange $range,
         private DiagnosticSeverity $severity,
         private string $message
-    )
-    {
+    ) {
     }
 
     public function range(): ByteOffsetRange

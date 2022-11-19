@@ -21,8 +21,7 @@ class ReplaceQualifierWithImportCommand implements Command
         private ClientApi $clientApi,
         private Workspace $workspace,
         private ReplaceQualifierWithImport $replaceQualifierWithImport
-    )
-    {
+    ) {
     }
 
     /**

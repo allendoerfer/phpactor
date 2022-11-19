@@ -30,8 +30,7 @@ class CreateClassCommand implements Command
         private Workspace $workspace,
         private Generators $generators,
         private FileToClass $fileToClass
-    )
-    {
+    ) {
     }
 
     /**

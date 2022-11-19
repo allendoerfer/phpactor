@@ -23,8 +23,7 @@ class ClassMover
         private ClassMoverFacade $classMover,
         private FilesystemRegistry $filesystemRegistry,
         private PathFinder $pathFinder
-    )
-    {
+    ) {
     }
 
     public function getRelatedFiles(string $src): array

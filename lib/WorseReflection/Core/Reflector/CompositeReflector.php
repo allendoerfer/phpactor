@@ -27,8 +27,7 @@ class CompositeReflector implements Reflector
         private SourceCodeReflector $sourceCodeReflector,
         private FunctionReflector $functionReflector,
         private ConstantReflector $constantReflector
-    )
-    {
+    ) {
     }
 
     public function reflectClass($className): ReflectionClass

@@ -44,8 +44,7 @@ class NodeContextFromMemberAccess
     public function __construct(
         private GenericMapResolver $resolver,
         private array $memberResolvers
-    )
-    {
+    ) {
     }
 
     public function infoFromMemberAccess(NodeContextResolver $resolver, Frame $frame, Type $classType, Node $node): NodeContext

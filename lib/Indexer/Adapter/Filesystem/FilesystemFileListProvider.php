@@ -19,8 +19,7 @@ class FilesystemFileListProvider implements FileListProvider
         private Filesystem $filesystem,
         private array $includePatterns = [],
         private array $excludePatterns = []
-    )
-    {
+    ) {
     }
 
     public function provideFileList(Index $index, ?string $subPath = null): FileList

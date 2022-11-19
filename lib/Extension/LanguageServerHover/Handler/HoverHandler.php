@@ -32,8 +32,7 @@ class HoverHandler implements Handler, CanRegisterCapabilities
         private Workspace $workspace,
         private Reflector $reflector,
         private ObjectRenderer $renderer
-    )
-    {
+    ) {
     }
 
     public function methods(): array

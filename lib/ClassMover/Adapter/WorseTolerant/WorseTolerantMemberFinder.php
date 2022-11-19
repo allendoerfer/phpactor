@@ -50,8 +50,7 @@ class WorseTolerantMemberFinder implements MemberFinder
         Reflector $reflector = null,
         Parser $parser = null,
         LoggerInterface $logger = null
-    )
-    {
+    ) {
         $this->reflector = $reflector ?: ReflectorBuilder::create()->addSource(WorseSourceCode::fromString(''));
         $this->parser = $parser ?: new Parser();
         $this->logger = $logger ?: new NullLogger();

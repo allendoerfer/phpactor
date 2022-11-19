@@ -47,8 +47,7 @@ class CompletionHandler implements Handler, CanRegisterCapabilities
         private NameImporter $nameImporter,
         private bool $supportSnippets,
         private bool $provideTextEdit = false
-    )
-    {
+    ) {
     }
 
     public function methods(): array

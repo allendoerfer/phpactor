@@ -52,8 +52,7 @@ class DocblockParserFactory implements DocBlockFactory
         private Reflector $reflector,
         ?Lexer $lexer = null,
         ?Parser $parser = null
-    )
-    {
+    ) {
         $this->lexer = $lexer ?: new Lexer();
         $this->parser = $parser ?: new Parser();
     }

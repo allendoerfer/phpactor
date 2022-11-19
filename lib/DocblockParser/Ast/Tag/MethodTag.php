@@ -30,8 +30,7 @@ class MethodTag extends TagNode
         public ?ParameterList $parameters,
         public ?Token $parenClose,
         public ?TextNode $text
-    )
-    {
+    ) {
     }
 
     public function methodName(): ?string

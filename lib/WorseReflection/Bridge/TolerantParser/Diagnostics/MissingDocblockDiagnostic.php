@@ -15,8 +15,7 @@ class MissingDocblockDiagnostic implements Diagnostic
         private string $classType,
         private string $methodName,
         private string $actualReturnType
-    )
-    {
+    ) {
     }
 
     public function range(): ByteOffsetRange

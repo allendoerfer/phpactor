@@ -21,8 +21,7 @@ class NodeContext
         protected Type $type,
         protected ?Type $containerType = null,
         private ?ReflectionScope $scope = null
-    )
-    {
+    ) {
         $this->typeAssertions = new TypeAssertions([]);
     }
 

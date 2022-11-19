@@ -24,8 +24,7 @@ class ReflectionArgument implements CoreReflectionArgument
         private ServiceLocator $services,
         private Frame $frame,
         private ArgumentExpression $node
-    )
-    {
+    ) {
     }
 
     public function guessName(): string

@@ -32,8 +32,7 @@ class ReferencesHandler implements Handler, CanRegisterCapabilities
         private LocationConverter $locationConverter,
         private ClientApi $clientApi,
         private float $timeoutSeconds = 5.0
-    )
-    {
+    ) {
     }
 
 

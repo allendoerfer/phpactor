@@ -13,8 +13,7 @@ class UseStatement
         private Type $className,
         private ?string $alias = null,
         private ?string $type = self::TYPE_CLASS
-    )
-    {
+    ) {
         if (!in_array($type, [ self::TYPE_CLASS, self::TYPE_FUNCTION ])) {
             throw new RuntimeException(sprintf(
                 'Invalid use type'

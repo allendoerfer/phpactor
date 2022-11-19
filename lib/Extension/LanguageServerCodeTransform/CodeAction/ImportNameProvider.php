@@ -25,8 +25,7 @@ class ImportNameProvider implements CodeActionProvider, DiagnosticsProvider
     public function __construct(
         private CandidateFinder $finder,
         private bool $reportNonExistingClasses = true
-    )
-    {
+    ) {
     }
 
     public function provideActionsFor(TextDocumentItem $item, Range $range, CancellationToken $cancel): Promise

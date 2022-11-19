@@ -35,8 +35,7 @@ class WorseClassMemberCompletor implements TolerantCompletor, TolerantQualifiabl
         private ObjectFormatter $formatter,
         private ObjectFormatter $snippetFormatter,
         private ObjectRenderer $objectRenderer
-    )
-    {
+    ) {
     }
 
     public function qualifier(): TolerantQualifier

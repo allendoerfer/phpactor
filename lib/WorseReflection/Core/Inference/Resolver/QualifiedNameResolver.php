@@ -27,8 +27,7 @@ class QualifiedNameResolver implements Resolver
         private Reflector $reflector,
         private FunctionStubRegistry $registry,
         private NodeToTypeConverter $nodeTypeConverter
-    )
-    {
+    ) {
     }
 
     public function resolve(NodeContextResolver $resolver, Frame $frame, Node $node): NodeContext

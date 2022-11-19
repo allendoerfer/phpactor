@@ -23,8 +23,7 @@ final class ClassMemberQuery
         private ?Class_ $class = null,
         private ?MemberName $memberName = null,
         string $type = null
-    )
-    {
+    ) {
         if (null !== $type && false === in_array($type, $this->validTypes)) {
             throw new InvalidArgumentException(sprintf(
                 'Invalid member type "%s", valid types: "%s"',

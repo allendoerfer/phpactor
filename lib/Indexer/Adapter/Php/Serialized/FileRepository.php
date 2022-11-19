@@ -34,8 +34,7 @@ class FileRepository
         private string $path,
         private RecordSerializer $serializer,
         ?LoggerInterface $logger = null
-    )
-    {
+    ) {
         $this->initializeLastUpdate();
         $this->logger = $logger ?: new NullLogger();
     }

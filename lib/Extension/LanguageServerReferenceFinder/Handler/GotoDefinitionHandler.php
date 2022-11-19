@@ -25,8 +25,7 @@ class GotoDefinitionHandler implements Handler, CanRegisterCapabilities
         private DefinitionLocator $definitionLocator,
         private LocationConverter $locationConverter,
         private ClientApi $clientApi
-    )
-    {
+    ) {
     }
 
     public function methods(): array

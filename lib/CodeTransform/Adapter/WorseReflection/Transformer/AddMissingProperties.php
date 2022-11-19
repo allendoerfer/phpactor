@@ -28,8 +28,7 @@ class AddMissingProperties implements Transformer
         private Reflector $reflector,
         private Updater $updater,
         ?Parser $parser = null
-    )
-    {
+    ) {
         $this->parser = $parser ?: new Parser();
     }
 

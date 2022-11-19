@@ -41,8 +41,7 @@ class ReflectionInterface extends AbstractReflectionClass implements CoreReflect
         private SourceCode $sourceCode,
         private InterfaceDeclaration $node,
         private array $visited = []
-    )
-    {
+    ) {
     }
 
     /**

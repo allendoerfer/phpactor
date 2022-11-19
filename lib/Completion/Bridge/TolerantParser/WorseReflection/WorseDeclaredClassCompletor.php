@@ -21,8 +21,7 @@ class WorseDeclaredClassCompletor implements TolerantCompletor, TolerantQualifia
     public function __construct(
         private ClassReflector $reflector,
         private ObjectFormatter $formatter
-    )
-    {
+    ) {
     }
 
 

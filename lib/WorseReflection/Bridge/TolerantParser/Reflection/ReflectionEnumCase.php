@@ -22,8 +22,7 @@ class ReflectionEnumCase extends AbstractReflectionClassMember implements CoreRe
         private ServiceLocator $serviceLocator,
         private ReflectionEnum $enum,
         private EnumCaseDeclaration $node
-    )
-    {
+    ) {
     }
 
     public function name(): string

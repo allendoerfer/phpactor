@@ -10,8 +10,7 @@ class TraitAlias
         private string $originalName,
         private ?Visibility $visiblity = null,
         private string $newName
-    )
-    {
+    ) {
     }
 
     public function originalName(): string

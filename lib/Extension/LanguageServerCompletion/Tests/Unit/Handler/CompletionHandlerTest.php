@@ -483,8 +483,7 @@ class CompletionHandlerTest extends TestCase
             public function __construct(
                 private array $suggestions,
                 private bool $isIncomplete
-            )
-            {
+            ) {
             }
 
             public function complete(TextDocument $source, ByteOffset $offset): Generator

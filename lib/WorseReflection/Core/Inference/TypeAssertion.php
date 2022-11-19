@@ -30,8 +30,7 @@ final class TypeAssertion
         Closure $true,
         Closure $false,
         private ?Type $classType = null
-    )
-    {
+    ) {
         $this->name = ltrim($name, '$');
         $this->true = $true;
         $this->false = $false;

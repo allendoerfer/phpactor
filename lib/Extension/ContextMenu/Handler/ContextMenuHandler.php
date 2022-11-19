@@ -35,8 +35,7 @@ class ContextMenuHandler implements Handler
         private ClassFileNormalizer $classFileNormalizer,
         private ContextMenu $menu,
         private Container $container
-    )
-    {
+    ) {
     }
 
     public function name(): string

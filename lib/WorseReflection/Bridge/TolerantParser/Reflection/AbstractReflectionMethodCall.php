@@ -34,8 +34,7 @@ abstract class AbstractReflectionMethodCall implements CoreReflectionMethodCall
         private ServiceLocator $services,
         private Frame $frame,
         private Node $node
-    )
-    {
+    ) {
     }
 
     public function position(): Position

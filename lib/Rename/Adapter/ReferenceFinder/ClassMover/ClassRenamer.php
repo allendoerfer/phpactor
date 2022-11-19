@@ -36,8 +36,7 @@ final class ClassRenamer implements Renamer
         private TextDocumentLocator $locator,
         private Parser $parser,
         private ClassMover $classMover
-    )
-    {
+    ) {
     }
 
     public function getRenameRange(TextDocument $textDocument, ByteOffset $offset): ?ByteOffsetRange

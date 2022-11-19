@@ -19,8 +19,7 @@ class ContextualSourceCodeReflector implements SourceCodeReflector
     public function __construct(
         private SourceCodeReflector $innerReflector,
         private TemporarySourceLocator $locator
-    )
-    {
+    ) {
     }
 
     public function reflectClassesIn($sourceCode, array $visited = []): ReflectionClassLikeCollection

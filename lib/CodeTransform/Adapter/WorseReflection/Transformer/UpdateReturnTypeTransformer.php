@@ -21,8 +21,7 @@ class UpdateReturnTypeTransformer implements Transformer
         private Reflector $reflector,
         private Updater $updater,
         private BuilderFactory $builderFactory
-    )
-    {
+    ) {
     }
 
     public function transform(SourceCode $code): TextEdits

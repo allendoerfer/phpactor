@@ -48,8 +48,7 @@ class ReferencesHandler extends AbstractHandler
         private ClassMemberReferences $classMemberReferences,
         private FilesystemRegistry $registry,
         private string $defaultFilesystem = SourceCodeFilesystemExtension::FILESYSTEM_GIT
-    )
-    {
+    ) {
     }
 
     public function name(): string

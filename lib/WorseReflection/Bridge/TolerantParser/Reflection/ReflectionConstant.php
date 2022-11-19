@@ -22,8 +22,7 @@ class ReflectionConstant extends AbstractReflectionClassMember implements CoreRe
         private ReflectionClassLike $class,
         private ClassConstDeclaration $declaration,
         private ConstElement $node
-    )
-    {
+    ) {
     }
 
     public function name(): string

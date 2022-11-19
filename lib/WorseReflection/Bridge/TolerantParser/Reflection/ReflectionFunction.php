@@ -24,8 +24,7 @@ class ReflectionFunction extends AbstractReflectedNode implements CoreReflection
         private SourceCode $sourceCode,
         private ServiceLocator $serviceLocator,
         private FunctionDeclaration $node
-    )
-    {
+    ) {
     }
 
     public function name(): Name

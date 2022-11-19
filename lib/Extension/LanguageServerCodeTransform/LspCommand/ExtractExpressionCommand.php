@@ -23,8 +23,7 @@ class ExtractExpressionCommand implements Command
         private ClientApi $clientApi,
         private Workspace $workspace,
         private ExtractExpression $extractExpression
-    )
-    {
+    ) {
     }
 
     /**

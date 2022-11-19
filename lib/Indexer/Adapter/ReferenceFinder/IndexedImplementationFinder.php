@@ -29,8 +29,7 @@ class IndexedImplementationFinder implements ClassImplementationFinder
         private QueryClient $query,
         private Reflector $reflector,
         private bool $deepReferences = true
-    )
-    {
+    ) {
         $this->containerTypeResolver = new ContainerTypeResolver($reflector);
     }
 

@@ -11,8 +11,7 @@ class LoggingPathResolver implements PathResolver
         private PathResolver $pathResolver,
         private LoggerInterface $logger,
         private string $level = LogLevel::DEBUG
-    )
-    {
+    ) {
     }
 
     public function resolve(string $path): string

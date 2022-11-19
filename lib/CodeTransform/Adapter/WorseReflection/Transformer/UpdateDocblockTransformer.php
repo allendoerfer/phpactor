@@ -21,8 +21,7 @@ class UpdateDocblockTransformer implements Transformer
         private Updater $updater,
         private BuilderFactory $builderFactory,
         private TextFormat $format
-    )
-    {
+    ) {
     }
 
     public function transform(SourceCode $code): TextEdits

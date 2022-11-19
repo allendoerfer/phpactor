@@ -22,8 +22,7 @@ class ClassMemberReferences
         private MemberReplacer $memberReplacer,
         private FilesystemRegistry $filesystemRegistry,
         private Reflector $reflector
-    )
-    {
+    ) {
     }
 
     public function findOrReplaceReferences(

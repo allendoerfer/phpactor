@@ -14,8 +14,7 @@ class MissingMethodDiagnostic implements Diagnostic
         private DiagnosticSeverity $severity,
         private string $classType,
         private string $methodName
-    )
-    {
+    ) {
     }
 
     public function range(): ByteOffsetRange

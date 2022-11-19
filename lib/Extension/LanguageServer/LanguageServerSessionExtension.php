@@ -23,8 +23,7 @@ class LanguageServerSessionExtension implements Extension
     public function __construct(
         private MessageTransmitter $transmitter,
         private InitializeParams $initializeParams
-    )
-    {
+    ) {
     }
 
 

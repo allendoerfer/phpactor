@@ -24,7 +24,6 @@ class CallableNode extends TypeNode
         public ?Token $close,
         public ?Token $colon,
         public ?TypeNode $type
-    )
-    {
+    ) {
     }
 }

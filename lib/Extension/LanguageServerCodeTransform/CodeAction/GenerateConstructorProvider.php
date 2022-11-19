@@ -21,8 +21,7 @@ class GenerateConstructorProvider implements CodeActionProvider
     public function __construct(
         private GenerateConstructor $generateConstructor,
         private WorkspaceEditConverter $converter
-    )
-    {
+    ) {
     }
 
     public function provideActionsFor(TextDocumentItem $textDocument, Range $range, CancellationToken $cancel): Promise

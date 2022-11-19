@@ -9,8 +9,7 @@ class RecordReference
         private string $identifier,
         private int $offset,
         private ?string $contaninerType = null
-    )
-    {
+    ) {
     }
 
     public function offset(): int

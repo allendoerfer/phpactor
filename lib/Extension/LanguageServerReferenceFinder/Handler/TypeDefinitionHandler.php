@@ -25,8 +25,7 @@ class TypeDefinitionHandler implements Handler, CanRegisterCapabilities
         private TypeLocator $typeLocator,
         private LocationConverter $locationConverter,
         private ClientApi $client
-    )
-    {
+    ) {
     }
 
     /**

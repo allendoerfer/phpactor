@@ -19,8 +19,7 @@ class ClassSearchHandler implements Handler
     public function __construct(
         private ClassSearch $classSearch,
         private string $defaultFilesystem = SourceCodeFilesystemExtension::FILESYSTEM_COMPOSER
-    )
-    {
+    ) {
     }
 
     public function name(): string

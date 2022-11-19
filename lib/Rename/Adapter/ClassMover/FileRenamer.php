@@ -24,8 +24,7 @@ class FileRenamer implements PhpactorFileRenamer
         private TextDocumentLocator $locator,
         private QueryClient $client,
         private ClassMover $mover
-    )
-    {
+    ) {
     }
 
     /**

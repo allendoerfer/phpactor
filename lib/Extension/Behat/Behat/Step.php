@@ -14,8 +14,7 @@ class Step
         private string $pattern,
         private string $path,
         private int $startByteOffset
-    )
-    {
+    ) {
     }
 
     public function context(): Context

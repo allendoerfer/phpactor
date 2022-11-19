@@ -25,8 +25,7 @@ final class WorkspaceSymbolProvider
         private SearchClient $client,
         private TextDocumentLocator $locator,
         private int $limit
-    )
-    {
+    ) {
     }
 
     /**

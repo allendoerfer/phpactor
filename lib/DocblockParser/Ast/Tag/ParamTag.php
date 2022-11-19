@@ -22,8 +22,7 @@ class ParamTag extends TagNode
         public ?TypeNode $type,
         public ?VariableNode $variable,
         public ?TextNode $text = null
-    )
-    {
+    ) {
     }
 
     public function paramName(): ?string

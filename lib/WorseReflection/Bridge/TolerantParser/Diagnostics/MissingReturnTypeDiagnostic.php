@@ -14,8 +14,7 @@ class MissingReturnTypeDiagnostic implements Diagnostic
         private string $classType,
         private string $methodName,
         private Type $returnType
-    )
-    {
+    ) {
     }
 
     public function range(): ByteOffsetRange

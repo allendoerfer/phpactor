@@ -22,8 +22,7 @@ class ImportAllUnresolvedNamesCommand implements Command
         private Workspace $workspace,
         private ImportNameCommand $importName,
         private ClientApi $client
-    )
-    {
+    ) {
     }
 
     /**

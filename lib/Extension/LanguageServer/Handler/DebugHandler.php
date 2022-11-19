@@ -32,8 +32,7 @@ class DebugHandler implements Handler
         private ServiceManager $serviceManager,
         private DiagnosticsProvider $diagnosticProvider,
         private array $statusProviders
-    )
-    {
+    ) {
     }
 
 

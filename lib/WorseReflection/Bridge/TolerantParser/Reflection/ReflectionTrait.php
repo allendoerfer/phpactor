@@ -33,8 +33,7 @@ class ReflectionTrait extends AbstractReflectionClass implements CoreReflectionT
         private SourceCode $sourceCode,
         private TraitDeclaration $node,
         private array $visited = []
-    )
-    {
+    ) {
     }
 
     public function methods(ReflectionClassLike $contextClass = null): CoreReflectionMethodCollection

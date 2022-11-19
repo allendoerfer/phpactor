@@ -25,8 +25,7 @@ class TransformerCodeActionPovider implements DiagnosticsProvider, CodeActionPro
         private Transformers $transformers,
         private string $name,
         private string $title
-    )
-    {
+    ) {
     }
 
 

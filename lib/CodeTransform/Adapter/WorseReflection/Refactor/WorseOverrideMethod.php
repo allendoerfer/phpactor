@@ -24,8 +24,7 @@ class WorseOverrideMethod implements OverrideMethod
         private Reflector $reflector,
         private BuilderFactory $factory,
         private Updater $updater
-    )
-    {
+    ) {
     }
 
     public function overrideMethod(SourceCode $source, string $className, string $methodName): string

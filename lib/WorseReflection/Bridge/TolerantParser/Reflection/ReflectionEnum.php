@@ -26,8 +26,7 @@ class ReflectionEnum extends AbstractReflectionClass implements CoreReflectionEn
         private ServiceLocator $serviceLocator,
         private SourceCode $sourceCode,
         private EnumDeclaration $node
-    )
-    {
+    ) {
     }
 
     public function methods(ReflectionClassLike $contextClass = null): CoreReflectionMethodCollection

@@ -15,8 +15,7 @@ class WorseSuggestionDocumentor implements SuggestionDocumentor
     public function __construct(
         private Reflector $reflector,
         private ObjectRenderer $renderer
-    )
-    {
+    ) {
     }
 
     public function document(Suggestion $suggestion): Closure

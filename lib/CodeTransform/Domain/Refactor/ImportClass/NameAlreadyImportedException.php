@@ -10,8 +10,7 @@ class NameAlreadyImportedException extends NameAlreadyUsedException
         NameImport $nameImport,
         private string $existingName,
         private string $existingFQN
-    )
-    {
+    ) {
         parent::__construct(sprintf(
             '%s "%s" is already imported',
             ucfirst($nameImport->type()),

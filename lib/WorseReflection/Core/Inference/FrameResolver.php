@@ -22,8 +22,7 @@ final class FrameResolver
         private NodeContextResolver $nodeContextResolver,
         private array $globalWalkers,
         private array $nodeWalkers
-    )
-    {
+    ) {
     }
 
     /**

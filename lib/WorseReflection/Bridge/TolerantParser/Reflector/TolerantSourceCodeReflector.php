@@ -29,8 +29,7 @@ class TolerantSourceCodeReflector implements SourceCodeReflector
     public function __construct(
         private ServiceLocator $serviceLocator,
         private Parser $parser
-    )
-    {
+    ) {
     }
 
     /**

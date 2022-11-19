@@ -23,8 +23,7 @@ class NodeContextResolver
         private LoggerInterface $logger,
         private Cache $cache,
         private array $resolverMap = []
-    )
-    {
+    ) {
     }
 
     public function withCache(Cache $cache):self

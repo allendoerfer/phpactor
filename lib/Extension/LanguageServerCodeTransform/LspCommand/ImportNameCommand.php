@@ -18,8 +18,7 @@ class ImportNameCommand implements Command
         private NameImporter $nameImporter,
         private Workspace $workspace,
         private ClientApi $client
-    )
-    {
+    ) {
     }
 
     public function __invoke(

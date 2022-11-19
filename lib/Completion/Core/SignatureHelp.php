@@ -11,8 +11,7 @@ class SignatureHelp
         private array $signatures,
         private ?int $activeSignature = null,
         private ?int $activeParameter = null
-    )
-    {
+    ) {
     }
 
     public function activeParameter(): ?int

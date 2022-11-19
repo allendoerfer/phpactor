@@ -25,8 +25,7 @@ class CompleteConstructor implements Transformer
         private Reflector $reflector,
         private Updater $updater,
         private string $visibility
-    )
-    {
+    ) {
     }
 
     public function transform(SourceCode $source): TextEdits

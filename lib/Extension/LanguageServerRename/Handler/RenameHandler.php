@@ -34,8 +34,7 @@ class RenameHandler implements Handler, CanRegisterCapabilities
         private TextDocumentLocator $documentLocator,
         private Renamer $renamer,
         private ClientApi $clientApi
-    )
-    {
+    ) {
     }
 
 

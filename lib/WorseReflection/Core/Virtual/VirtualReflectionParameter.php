@@ -21,8 +21,7 @@ class VirtualReflectionParameter implements ReflectionParameter
         private ReflectionScope $scope,
         private Position $position,
         private int $index
-    )
-    {
+    ) {
     }
 
     public function scope(): ReflectionScope

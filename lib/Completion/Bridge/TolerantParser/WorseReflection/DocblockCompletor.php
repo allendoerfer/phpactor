@@ -46,8 +46,7 @@ class DocblockCompletor implements TolerantCompletor
     public function __construct(
         private TypeSuggestionProvider $typeSuggestionProvider,
         private Parser $parser
-    )
-    {
+    ) {
     }
 
     public function complete(Node $node, TextDocument $source, ByteOffset $byteOffset): Generator

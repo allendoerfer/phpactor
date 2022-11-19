@@ -33,8 +33,7 @@ class ImportClassHandler extends AbstractHandler
         private ImportName $nameImport,
         private ClassSearch $classSearch,
         private string $filesystem
-    )
-    {
+    ) {
     }
 
     public function name(): string

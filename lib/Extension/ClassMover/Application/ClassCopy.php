@@ -21,8 +21,7 @@ class ClassCopy
         private ClassFileNormalizer $classFileNormalizer,
         private ClassMoverFacade $classMover,
         private Filesystem $filesystem
-    )
-    {
+    ) {
     }
 
     /**

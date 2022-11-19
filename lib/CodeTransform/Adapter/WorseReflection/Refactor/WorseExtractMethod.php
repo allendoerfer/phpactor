@@ -39,8 +39,7 @@ class WorseExtractMethod implements ExtractMethod
         private BuilderFactory $factory,
         private Updater $updater,
         Parser $parser = null
-    )
-    {
+    ) {
         $this->parser = $parser ?: new Parser();
     }
 

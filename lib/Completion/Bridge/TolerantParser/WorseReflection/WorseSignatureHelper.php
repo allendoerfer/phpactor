@@ -36,8 +36,7 @@ class WorseSignatureHelper implements SignatureHelper
         private Reflector $reflector,
         private ObjectFormatter $formatter,
         ?Parser $parser = null
-    )
-    {
+    ) {
         $this->parser = $parser ?: new Parser();
     }
 

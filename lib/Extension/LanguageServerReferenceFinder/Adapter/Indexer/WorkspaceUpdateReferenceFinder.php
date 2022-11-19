@@ -18,8 +18,7 @@ class WorkspaceUpdateReferenceFinder implements ReferenceFinder
         private Workspace $workspace,
         private Indexer $indexer,
         private ReferenceFinder $innerReferenceFinder
-    )
-    {
+    ) {
     }
 
 

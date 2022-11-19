@@ -15,8 +15,7 @@ final class Variable
         private Type $type,
         private ?Type $classType = null,
         private bool $wasAssigned = false
-    )
-    {
+    ) {
         $this->name = ltrim($name, '$');
     }
 

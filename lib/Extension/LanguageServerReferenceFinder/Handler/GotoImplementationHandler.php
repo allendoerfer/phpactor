@@ -19,8 +19,7 @@ class GotoImplementationHandler implements Handler, CanRegisterCapabilities
         private Workspace $workspace,
         private ClassImplementationFinder $finder,
         private LocationConverter $locationConverter
-    )
-    {
+    ) {
     }
 
 

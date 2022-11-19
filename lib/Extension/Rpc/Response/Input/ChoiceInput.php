@@ -10,8 +10,7 @@ class ChoiceInput implements Input
         private array $choices,
         private ?string $default = null,
         private array $keyMap = []
-    )
-    {
+    ) {
     }
 
     public static function fromNameLabelChoicesAndDefault(string $name, string $label, array $choices, string $default = null): self

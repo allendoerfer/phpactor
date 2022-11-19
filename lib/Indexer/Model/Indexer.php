@@ -14,8 +14,7 @@ class Indexer
         private Index $index,
         private FileListProvider $provider,
         ?DirtyDocumentTracker $dirtyDocumentTracker = null
-    )
-    {
+    ) {
         $this->dirtyDocumentTracker = $dirtyDocumentTracker ?: new NullDirtyDocumentTracker();
     }
 

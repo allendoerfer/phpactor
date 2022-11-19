@@ -23,8 +23,7 @@ class ExtractConstantCommand implements Command
         private ClientApi $clientApi,
         private Workspace $workspace,
         private ExtractConstant $extractConstant
-    )
-    {
+    ) {
     }
 
     /**

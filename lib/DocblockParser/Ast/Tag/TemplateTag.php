@@ -20,8 +20,7 @@ class TemplateTag extends TagNode
         public ?Token $placeholder = null,
         public ?Token $constraint = null,
         public ?TypeNode $type = null
-    )
-    {
+    ) {
     }
 
     public function placeholder(): string

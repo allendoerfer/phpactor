@@ -10,8 +10,7 @@ class Reference
         private int $lineNumber,
         private ?int $colNo = null,
         private string $line = ''
-    )
-    {
+    ) {
     }
 
     public static function fromStartEndLineNumberAndCol(int $start, int $end, int $lineNumber, int $col = null)

@@ -33,8 +33,7 @@ class TolerantImportName implements ImportName
         private Updater $updater,
         Parser $parser = null,
         private bool $importGlobals = false
-    )
-    {
+    ) {
         $this->parser = $parser ?: new Parser();
     }
 

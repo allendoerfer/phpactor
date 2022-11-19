@@ -17,8 +17,7 @@ final class StubSourceLocator implements SourceCodeLocator
         private Reflector $reflector,
         private string $stubPath,
         private string $cacheDir
-    )
-    {
+    ) {
     }
 
     public function locate(Name $name): SourceCode

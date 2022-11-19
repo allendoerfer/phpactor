@@ -18,8 +18,7 @@ final class InterfaceFromExistingGenerator implements GenerateFromExisting
     public function __construct(
         private Reflector $reflector,
         private Renderer $renderer
-    )
-    {
+    ) {
     }
 
 

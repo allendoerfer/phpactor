@@ -12,8 +12,7 @@ class Navigator
         private NavigatorInterface $navigator,
         private ClassNew $classNew,
         private array $autoCreateConfig
-    )
-    {
+    ) {
     }
 
     public function destinationsFor(string $path)

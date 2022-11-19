@@ -23,8 +23,7 @@ class OpenFileResponse implements Response
         private int $offset = 0,
         private bool $forceReload = false,
         private string $target = self::TARGET_FOCUSED_WINDOW
-    )
-    {
+    ) {
     }
 
     public static function fromPath(string $path): OpenFileResponse

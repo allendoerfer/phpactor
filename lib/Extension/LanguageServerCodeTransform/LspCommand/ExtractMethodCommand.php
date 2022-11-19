@@ -23,8 +23,7 @@ class ExtractMethodCommand implements Command
         private ClientApi $clientApi,
         private Workspace $workspace,
         private ExtractMethod $extractMethod
-    )
-    {
+    ) {
     }
 
     /**

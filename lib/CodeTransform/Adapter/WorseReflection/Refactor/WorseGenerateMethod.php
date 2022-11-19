@@ -29,8 +29,7 @@ class WorseGenerateMethod implements GenerateMethod
         private Reflector $reflector,
         private BuilderFactory $factory,
         private Updater $updater
-    )
-    {
+    ) {
     }
 
     public function generateMethod(SourceCode $sourceCode, int $offset, ?string $methodName = null): TextDocumentEdits

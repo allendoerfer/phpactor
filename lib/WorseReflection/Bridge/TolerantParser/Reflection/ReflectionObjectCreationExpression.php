@@ -20,8 +20,7 @@ class ReflectionObjectCreationExpression implements PhpactorReflectionObjectCrea
         private ServiceLocator $locator,
         private Frame $frame,
         private ObjectCreationExpression $node
-    )
-    {
+    ) {
     }
 
     public function scope(): ReflectionScope

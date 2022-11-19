@@ -29,8 +29,7 @@ class WorseExtractConstant implements ExtractConstant
         private Reflector $reflector,
         private Updater $updater,
         Parser $parser = null
-    )
-    {
+    ) {
         $this->parser = $parser ?: new Parser();
     }
 

@@ -59,8 +59,7 @@ class ReflectionClass extends AbstractReflectionClass implements CoreReflectionC
         private SourceCode $sourceCode,
         private ClassDeclaration $node,
         private array $visited = []
-    )
-    {
+    ) {
     }
 
     public function isAbstract(): bool

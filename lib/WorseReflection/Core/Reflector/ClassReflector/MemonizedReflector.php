@@ -34,8 +34,7 @@ class MemonizedReflector implements ClassReflector, FunctionReflector, ConstantR
         private FunctionReflector $functionReflector,
         private ConstantReflector $constantReflector,
         private Cache $cache
-    )
-    {
+    ) {
         $this->innerReflector = $classReflector;
     }
 

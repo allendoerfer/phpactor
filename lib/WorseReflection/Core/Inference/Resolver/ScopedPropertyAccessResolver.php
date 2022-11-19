@@ -18,8 +18,7 @@ class ScopedPropertyAccessResolver implements Resolver
     public function __construct(
         private NodeToTypeConverter $nodeTypeConverter,
         private NodeContextFromMemberAccess $nodeContextFromMemberAccess
-    )
-    {
+    ) {
     }
 
     public function resolve(NodeContextResolver $resolver, Frame $frame, Node $node): NodeContext

@@ -28,8 +28,7 @@ class WorseNamedParameterCompletor implements TolerantCompletor
     public function __construct(
         private Reflector $reflector,
         private ObjectFormatter $formatter
-    )
-    {
+    ) {
     }
 
 

@@ -15,8 +15,7 @@ class ClassSearch
         private FilesystemRegistry $filesystemRegistry,
         private FileToClass $fileToClass,
         private Reflector $reflector
-    )
-    {
+    ) {
     }
 
     public function classSearch(string $filesystemName, string $name)

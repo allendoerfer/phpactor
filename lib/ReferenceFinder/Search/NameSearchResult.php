@@ -11,8 +11,7 @@ final class NameSearchResult
         private NameSearchResultType $type,
         private FullyQualifiedName $name,
         private ?TextDocumentUri $uri = null
-    )
-    {
+    ) {
     }
 
     /**

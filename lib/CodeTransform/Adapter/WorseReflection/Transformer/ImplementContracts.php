@@ -23,8 +23,7 @@ class ImplementContracts implements Transformer
         private Reflector $reflector,
         private Updater $updater,
         private BuilderFactory $factory
-    )
-    {
+    ) {
     }
 
     public function diagnostics(SourceCode $source): Diagnostics

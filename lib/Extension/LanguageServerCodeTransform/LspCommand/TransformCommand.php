@@ -20,8 +20,7 @@ class TransformCommand implements Command
         private ClientApi $clientApi,
         private Workspace $workspace,
         private Transformers $transformers
-    )
-    {
+    ) {
     }
 
     public function __invoke(string $uri, string $transform): Promise

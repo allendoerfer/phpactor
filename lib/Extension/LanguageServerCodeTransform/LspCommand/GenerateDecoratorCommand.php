@@ -19,8 +19,7 @@ class GenerateDecoratorCommand implements Command
         private ClientApi $clientApi,
         private Workspace $workspace,
         private GenerateDecorator $generateDecorator
-    )
-    {
+    ) {
     }
 
     /**

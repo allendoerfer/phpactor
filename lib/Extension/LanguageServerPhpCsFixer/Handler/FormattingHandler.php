@@ -19,8 +19,7 @@ class FormattingHandler implements Handler, CanRegisterCapabilities
     public function __construct(
         private PhpCsFixerFormatter $formatter,
         private TextDocumentLocator $locator
-    )
-    {
+    ) {
     }
 
     public function methods(): array

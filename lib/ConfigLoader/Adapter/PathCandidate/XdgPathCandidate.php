@@ -13,8 +13,7 @@ class XdgPathCandidate implements PathCandidate
         private string $filename,
         private string $loader,
         private Xdg $xdg
-    )
-    {
+    ) {
     }
 
     public function path(): string
