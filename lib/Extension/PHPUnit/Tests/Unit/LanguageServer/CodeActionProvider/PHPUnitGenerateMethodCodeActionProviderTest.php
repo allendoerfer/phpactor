@@ -5,7 +5,6 @@ namespace Phpactor\Extension\PHPUnit\Tests\Unit\LanguageServer\CodeActionProvide
 use Amp\CancellationTokenSource;
 use Closure;
 use Generator;
-use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
 use Phpactor\Extension\PHPUnit\LanguageServer\CodeActionProvider\GeneratieMethodCodeActionProvider;
 use Phpactor\LanguageServerProtocol\CodeAction;
@@ -13,7 +12,7 @@ use Phpactor\LanguageServer\Test\ProtocolFactory;
 use Phpactor\WorseReflection\ReflectorBuilder;
 use function Amp\Promise\wait;
 
-class GenerateMethodCodeActionProviderTest extends TestCase
+class PHPUnitGenerateMethodCodeActionProviderTest extends TestCase
 {
     /**
      * @dataProvider provideCodeActions

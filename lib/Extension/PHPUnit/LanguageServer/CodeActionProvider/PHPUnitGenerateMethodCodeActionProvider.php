@@ -15,7 +15,7 @@ use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
 use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
 use function Amp\call;
 
-class GeneratieMethodCodeActionProvider implements CodeActionProvider
+class PHPUnitGenerateMethodCodeActionProvider implements CodeActionProvider
 {
     public const KIND = 'quickfix.add_method';
 
@@ -58,7 +58,11 @@ class GeneratieMethodCodeActionProvider implements CodeActionProvider
                         title: sprintf('Add %s method', $method),
                         command: 'add_method' /** $command string */,
                         arguments: [
+                            $reflectionClass->sourceCode()->uri(),
+                            $reflectionClass->name()->__toString(),
+                            'protected',
                             $method,
+                            'void',
                         ]
                     )
                 );
