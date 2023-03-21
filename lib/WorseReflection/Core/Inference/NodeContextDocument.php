@@ -2,6 +2,6 @@
 
 namespace Phpactor\WorseReflection\Core\Inference;
 
-final class FrameStack
+class NodeContextDocument
 {
 }
