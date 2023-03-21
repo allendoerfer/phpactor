@@ -22,11 +22,17 @@ class NodeContextDocumentBuilderTest extends IntegrationTestCase
         $source = <<<'EOT'
         <?php 
 
-        $foo = 123;
+        class Foobar {
+            private int $foobar;
+            public function __construct()
+            {
+                $this->foobar = 123;
+            }
+        }
         EOT;
         $node = (new Parser())->parseSourceFile($source);
         $reflector = ReflectorBuilder::create()->build();
-        (new NodeContextDocumentBuilder(new NodeContextResolver(
+        $context = (new NodeContextDocumentBuilder(new NodeContextResolver(
             $reflector,
             new DocblockParserFactory($reflector),
             new NullLogger(),
@@ -39,5 +45,6 @@ class NodeContextDocumentBuilderTest extends IntegrationTestCase
             ))->createResolvers()
         )))->build($node);
 
+        dump($context->__toString());
     }
 }

@@ -10,11 +10,14 @@ class NodeContextDocumentBuilder
     {
     }
 
-    public function build(Node $node): NodeContextDocument
+    public function build(Node $node, ?Frame $frame = null): NodeContext
     {
-
-        foreach ($node->getDescendantNodes() as $node) {
-            $context = $this->resolver->resolveNode($frame, $node);
+        $frame = $frame ?: new Frame();
+        $nodeContext = $this->resolver->resolveNode($frame, $node);
+        foreach ($node->getChildNodes() as $child) {
+            $nodeContext->addChild($this->build($child, $frame));
         }
+
+        return $nodeContext;
     }
 }
