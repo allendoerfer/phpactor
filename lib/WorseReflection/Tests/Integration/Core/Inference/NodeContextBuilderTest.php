@@ -15,7 +15,7 @@ use Phpactor\WorseReflection\ReflectorBuilder;
 use Phpactor\WorseReflection\Tests\Integration\IntegrationTestCase;
 use Psr\Log\NullLogger;
 
-class NodeContextDocumentBuilderTest extends IntegrationTestCase
+class NodeContextBuilderTest extends IntegrationTestCase
 {
     public function testBuild(): void
     {
