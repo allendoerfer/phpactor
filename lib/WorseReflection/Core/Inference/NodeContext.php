@@ -21,6 +21,8 @@ class NodeContext
      */
     private array $children = [];
 
+    private ?Frame $frame = null;
+
     protected function __construct(
         protected Symbol $symbol,
         protected Type $type,
@@ -57,6 +59,14 @@ class NodeContext
     {
         $new = clone $this;
         $new->typeAssertions = $typeAssertions;
+
+        return $new;
+    }
+
+    public function withFrame(Frame $frame): NodeContext
+    {
+        $new = clone $this;
+        $new->frame = $frame;
 
         return $new;
     }
@@ -184,5 +194,11 @@ class NodeContext
                 )
             ),
         );
+    }
+
+
+    public function frame()
+    {
+        return $this->frame;
     }
 }

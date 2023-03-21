@@ -4,18 +4,22 @@ namespace Phpactor\WorseReflection\Core\Inference;
 
 use Microsoft\PhpParser\Node;
 
-class NodeContextDocumentBuilder
+class NodeContextBuilder
 {
     public function __construct(private NodeContextResolver $resolver)
     {
     }
 
-    public function build(Node $node, ?Frame $frame = null): NodeContext
+    public function build(Node $node, ?Node $target = null, ?Frame $frame = null): NodeContext
     {
         $frame = $frame ?: new Frame();
         $nodeContext = $this->resolver->resolveNode($frame, $node);
         foreach ($node->getChildNodes() as $child) {
-            $nodeContext->addChild($this->build($child, $frame));
+            $childContext = $this->build($child, $target, $frame);
+            $nodeContext->addChild($childContext);
+            if ($child === $target) {
+                return $childContext;
+            }
         }
 
         return $nodeContext;

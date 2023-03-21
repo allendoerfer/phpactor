@@ -7,7 +7,7 @@ use Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser\DocblockParserFactor
 use Phpactor\WorseReflection\Core\Cache\NullCache;
 use Phpactor\WorseReflection\Core\DefaultResolverFactory;
 use Phpactor\WorseReflection\Core\Inference\GenericMapResolver;
-use Phpactor\WorseReflection\Core\Inference\NodeContextDocumentBuilder;
+use Phpactor\WorseReflection\Core\Inference\NodeContextBuilder;
 use Phpactor\WorseReflection\Core\Inference\NodeContextResolver;
 use Phpactor\WorseReflection\Core\Inference\NodeToTypeConverter;
 use Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess\NodeContextFromMemberAccess;
@@ -32,7 +32,7 @@ class NodeContextDocumentBuilderTest extends IntegrationTestCase
         EOT;
         $node = (new Parser())->parseSourceFile($source);
         $reflector = ReflectorBuilder::create()->build();
-        $context = (new NodeContextDocumentBuilder(new NodeContextResolver(
+        $context = (new NodeContextBuilder(new NodeContextResolver(
             $reflector,
             new DocblockParserFactory($reflector),
             new NullLogger(),

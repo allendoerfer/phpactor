@@ -7,6 +7,8 @@ use Phpactor\WorseReflection\Bridge\Phpactor\DocblockParser\DocblockParserFactor
 use Phpactor\WorseReflection\Core\Cache\NullCache;
 use Phpactor\WorseReflection\Core\Cache\StaticCache;
 use Phpactor\WorseReflection\Core\Inference\GenericMapResolver;
+use Phpactor\WorseReflection\Core\Inference\NodeContextDocument;
+use Phpactor\WorseReflection\Core\Inference\NodeContextBuilder;
 use Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess\MemberContextResolver;
 use Phpactor\WorseReflection\Core\Inference\Resolver\MemberAccess\NodeContextFromMemberAccess;
 use Phpactor\WorseReflection\Core\Inference\Walker;
@@ -165,5 +167,11 @@ class ServiceLocator
     public function newDiagnosticsWalker(): DiagnosticsWalker
     {
         return new DiagnosticsWalker($this->diagnosticProviders);
+    }
+
+    public function nodeContextBuilder(): NodeContextBuilder
+    {
+        return new NodeContextBuilder($this->nodeContextResolver());
+
     }
 }
