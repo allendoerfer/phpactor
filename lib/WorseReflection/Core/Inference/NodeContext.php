@@ -16,6 +16,11 @@ class NodeContext
      */
     private array $issues = [];
 
+    /**
+     * @var NodeContext[]
+     */
+    private array $children = [];
+
     protected function __construct(
         protected Symbol $symbol,
         protected Type $type,
@@ -147,5 +152,37 @@ class NodeContext
         }
 
         return $this;
+    }
+
+    public function addChild(NodeContext $nodeContext): void
+    {
+        $this->children[] = $nodeContext;
+    }
+    /**
+     * @return NodeContext[]
+     */
+    public function children(): array
+    {
+        return $this->children;
+    }
+
+    public function __toString(): string
+    {
+        $shortName = substr($this::class, strrpos($this::class, '\\') + 1);
+        return sprintf(
+            "%d:%d %s: [%s] %s\n    %s",
+            $this->symbol()->position()->start()->toInt(),
+            $this->symbol()->position()->end()->toInt(),
+            $shortName,
+            $this->symbol()->symbolType(),
+            $this->type()->isDefined() ? $this->type()->__toString() : '',
+            implode(
+                "\n    ",
+                array_map(
+                    fn (NodeContext $ctx) => $ctx->__toString(),
+                    $this->children
+                )
+            ),
+        );
     }
 }
