@@ -24,7 +24,7 @@ class WorseDiagnosticProvider implements DiagnosticsProvider
     {
         return call(function () use ($textDocument, $cancel) {
             $lspDiagnostics = [];
-            foreach ($this->reflector->diagnostics($textDocument->text) as $diagnostic) {
+            foreach (yield $this->reflector->diagnostics($textDocument->text) as $diagnostic) {
                 $range = new Range(
                     PositionConverter::byteOffsetToPosition($diagnostic->range()->start(), $textDocument->text),
                     PositionConverter::byteOffsetToPosition($diagnostic->range()->end(), $textDocument->text),

@@ -14,6 +14,7 @@ use Phpactor\LanguageServerProtocol\TextDocumentItem;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnresolvableNameDiagnostic;
 use Phpactor\WorseReflection\Core\Exception\NotFound;
 use Phpactor\WorseReflection\Reflector;
+use function Amp\Promise\wait;
 
 class CandidateFinder
 {
@@ -23,7 +24,7 @@ class CandidateFinder
 
     public function unresolved(TextDocumentItem $item): NameWithByteOffsets
     {
-        $diagnostics = $this->reflector->diagnostics($item->text)->byClass(UnresolvableNameDiagnostic::class);
+        $diagnostics = wait($this->reflector->diagnostics($item->text))->byClass(UnresolvableNameDiagnostic::class);
 
         return new NameWithByteOffsets(...array_map(function (UnresolvableNameDiagnostic $diagnostic): NameWithByteOffset {
             return new NameWithByteOffset($diagnostic->name(), $diagnostic->range()->start(), $diagnostic->type());

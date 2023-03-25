@@ -7,6 +7,7 @@ use Phpactor\CodeTransform\Domain\Helper\MissingMethodFinder\MissingMethod;
 use Phpactor\TextDocument\TextDocument;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingMethodDiagnostic;
 use Phpactor\WorseReflection\Reflector;
+use function Amp\Promise\wait;
 
 class WorseMissingMethodFinder implements MissingMethodFinder
 {
@@ -17,7 +18,7 @@ class WorseMissingMethodFinder implements MissingMethodFinder
 
     public function find(TextDocument $sourceCode): array
     {
-        $diagnostics = $this->reflector->diagnostics($sourceCode)->byClass(MissingMethodDiagnostic::class);
+        $diagnostics = wait($this->reflector->diagnostics($sourceCode))->byClass(MissingMethodDiagnostic::class);
         $missing = [];
 
         /** @var MissingMethodDiagnostic $missingMethod */

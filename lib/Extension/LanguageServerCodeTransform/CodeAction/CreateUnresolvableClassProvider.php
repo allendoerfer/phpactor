@@ -18,6 +18,7 @@ use Phpactor\LanguageServer\Test\ProtocolFactory;
 use Phpactor\TextDocument\TextDocumentUri;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnresolvableNameDiagnostic;
 use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
+use function Amp\Promise\wait;
 use function Amp\call;
 
 class CreateUnresolvableClassProvider implements CodeActionProvider
@@ -34,7 +35,7 @@ class CreateUnresolvableClassProvider implements CodeActionProvider
     public function provideActionsFor(TextDocumentItem $textDocument, Range $range, CancellationToken $cancel): Promise
     {
         return call(function () use ($textDocument, $range) {
-            $diagnostics = $this->reflector->diagnostics($textDocument->text)->byClass(
+            $diagnostics = wait($this->reflector->diagnostics($textDocument->text))->byClass(
                 UnresolvableNameDiagnostic::class
             )->containingRange(
                 RangeConverter::toPhpactorRange($range, $textDocument->text)

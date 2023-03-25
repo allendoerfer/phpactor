@@ -18,6 +18,7 @@ use Phpactor\CodeBuilder\Domain\Builder\TraitBuilder;
 use Phpactor\CodeBuilder\Domain\Builder\SourceCodeBuilder;
 use Phpactor\CodeBuilder\Domain\Code;
 use Phpactor\WorseReflection\Core\Reflection\ReflectionClassLike;
+use function Amp\Promise\wait;
 
 class AddMissingProperties implements Transformer
 {
@@ -36,7 +37,7 @@ class AddMissingProperties implements Transformer
     public function transform(SourceCode $code): TextEdits
     {
         $rootNode = $this->parser->parseSourceFile($code->__toString());
-        $wrDiagnostics = $this->reflector->diagnostics($code->__toString());
+        $wrDiagnostics = wait($this->reflector->diagnostics($code->__toString()));
         $sourceBuilder = SourceCodeBuilder::create();
 
         /** @var AssignmentToMissingPropertyDiagnostic $diagnostic */
@@ -75,7 +76,7 @@ class AddMissingProperties implements Transformer
 
     public function diagnostics(SourceCode $code): Diagnostics
     {
-        $wrDiagnostics = $this->reflector->diagnostics($code->__toString());
+        $wrDiagnostics = wait($this->reflector->diagnostics($code->__toString()));
         $diagnostics = [];
 
         /** @var AssignmentToMissingPropertyDiagnostic $diagnostic */

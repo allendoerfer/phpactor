@@ -14,6 +14,7 @@ use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingReturnType
 use Phpactor\WorseReflection\Core\Reflection\ReflectionMethod;
 use Phpactor\WorseReflection\Core\Type;
 use Phpactor\WorseReflection\Reflector;
+use function Amp\Promise\wait;
 
 class UpdateReturnTypeTransformer implements Transformer
 {
@@ -49,7 +50,7 @@ class UpdateReturnTypeTransformer implements Transformer
 
     public function diagnostics(SourceCode $code): Diagnostics
     {
-        $wrDiagnostics = $this->reflector->diagnostics($code->__toString())->byClass(MissingReturnTypeDiagnostic::class);
+        $wrDiagnostics = wait($this->reflector->diagnostics($code->__toString()))->byClass(MissingReturnTypeDiagnostic::class);
         $diagnostics = [];
 
         /** @var MissingReturnTypeDiagnostic $diagnostic */
@@ -74,7 +75,7 @@ class UpdateReturnTypeTransformer implements Transformer
      */
     private function methodsThatNeedFixing(SourceCode $code): array
     {
-        $diagnostics = $this->reflector->diagnostics($code->__toString())->byClass(MissingReturnTypeDiagnostic::class);
+        $diagnostics = wait($this->reflector->diagnostics($code->__toString()))->byClass(MissingReturnTypeDiagnostic::class);
         $methods = [];
         /** @var MissingReturnTypeDiagnostic $diagnostic */
         foreach ($diagnostics as $diagnostic) {

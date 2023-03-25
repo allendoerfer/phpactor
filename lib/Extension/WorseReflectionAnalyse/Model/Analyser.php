@@ -12,6 +12,7 @@ use Phpactor\WorseReflection\Core\Reflector\SourceCodeReflector;
 use RuntimeException;
 use Symfony\Component\Filesystem\Path;
 use Throwable;
+use function Amp\Promise\wait;
 
 class Analyser
 {
@@ -27,7 +28,7 @@ class Analyser
         $cwd = (string)getcwd();
         $absPath = Path::makeAbsolute($path, $cwd);
         if (file_exists($absPath) && is_file($absPath)) {
-            yield $path => $this->reflector->diagnostics((string)file_get_contents($absPath));
+            yield $path => wait($this->reflector->diagnostics((string)file_get_contents($absPath)));
             return;
         }
 
@@ -36,7 +37,7 @@ class Analyser
                 yield Path::makeRelative(
                     $file->path(),
                     $cwd
-                ) => $this->reflector->diagnostics((string)file_get_contents($file->path()));
+                ) => wait($this->reflector->diagnostics((string)file_get_contents($file->path())));
             } catch (Throwable $error) {
                 throw new RuntimeException(sprintf(
                     'Error while analysing file "%s": %s',

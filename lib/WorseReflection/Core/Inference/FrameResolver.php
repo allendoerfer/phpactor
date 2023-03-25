@@ -2,6 +2,7 @@
 
 namespace Phpactor\WorseReflection\Core\Inference;
 
+use Amp\Delayed;
 use Generator;
 use Microsoft\PhpParser\FunctionLike;
 use Microsoft\PhpParser\MissingToken;
@@ -12,6 +13,7 @@ use Microsoft\PhpParser\Node\SourceFileNode;
 use Microsoft\PhpParser\Token;
 use Phpactor\WorseReflection\Reflector;
 use RuntimeException;
+use function Amp\delay;
 
 final class FrameResolver
 {
@@ -122,7 +124,7 @@ final class FrameResolver
     }
 
     /**
-     * @return Generator<int,null,null,?Frame>
+     * @return Generator<int,Delayed<null>,null,?Frame>
      */
     private function walkNode(Node $node, Node $targetNode, ?Frame $frame = null): Generator
     {
@@ -148,7 +150,7 @@ final class FrameResolver
             if ($found = $generator->getReturn()) {
                 return $found;
             }
-            yield;
+            yield delay(0);
         }
 
         if (isset($this->nodeWalkers[$nodeClass])) {

@@ -14,6 +14,7 @@ use Phpactor\CodeTransform\Domain\Transformer;
 use Phpactor\TextDocument\TextEdits;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingDocblockParamDiagnostic;
 use Phpactor\WorseReflection\Reflector;
+use function Amp\Promise\wait;
 
 class UpdateDocblockParamsTransformer implements Transformer
 {
@@ -87,7 +88,7 @@ class UpdateDocblockParamsTransformer implements Transformer
     private function methodsThatNeedFixing(SourceCode $code): array
     {
         $missings = [];
-        $diagnostics = $this->reflector->diagnostics($code->__toString())->byClass(MissingDocblockParamDiagnostic::class);
+        $diagnostics = wait($this->reflector->diagnostics($code->__toString()))->byClass(MissingDocblockParamDiagnostic::class);
 
         foreach ($diagnostics as $diagnostic) {
             $missings[] = $diagnostic;

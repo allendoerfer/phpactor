@@ -2,6 +2,7 @@
 
 namespace Phpactor\WorseReflection\Core\Reflector;
 
+use Amp\Promise;
 use Generator;
 use Phpactor\TextDocument\ByteOffset;
 use Phpactor\TextDocument\TextDocument;
@@ -55,9 +56,9 @@ interface SourceCodeReflector
     public function navigate(SourceCode|TextDocument|string $sourceCode): ReflectionNavigation;
 
     /**
-     * @return Diagnostics<Diagnostic>
+     * @return Promise<Diagnostics<Diagnostic>>
      */
-    public function diagnostics(SourceCode|TextDocument|string $sourceCode): Diagnostics;
+    public function diagnostics(SourceCode|TextDocument|string $sourceCode): Promise;
 
     public function reflectNode(
         SourceCode|TextDocument|string $sourceCode,

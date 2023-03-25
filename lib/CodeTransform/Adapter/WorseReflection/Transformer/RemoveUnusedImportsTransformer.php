@@ -16,6 +16,7 @@ use Phpactor\TextDocument\TextEdits;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\UnusedImportDiagnostic;
 use Phpactor\WorseReflection\Reflector;
 use Phpactor\WorseReflection\Core\Diagnostics as WorseDiagnostics;
+use function Amp\Promise\wait;
 
 class RemoveUnusedImportsTransformer implements Transformer
 {
@@ -93,7 +94,7 @@ class RemoveUnusedImportsTransformer implements Transformer
      */
     private function unusedImports(SourceCode $code): WorseDiagnostics
     {
-        return $this->reflector->diagnostics($code->__toString())->byClass(UnusedImportDiagnostic::class);
+        return wait($this->reflector->diagnostics($code->__toString()))->byClass(UnusedImportDiagnostic::class);
     }
 
     private function forGroupClause(QualifiedName $importNode, NamespaceUseClause $list): ?TextEdit

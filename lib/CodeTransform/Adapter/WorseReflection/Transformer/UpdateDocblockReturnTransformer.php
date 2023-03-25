@@ -14,6 +14,7 @@ use Phpactor\CodeTransform\Domain\Transformer;
 use Phpactor\TextDocument\TextEdits;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Diagnostics\MissingDocblockReturnTypeDiagnostic;
 use Phpactor\WorseReflection\Reflector;
+use function Amp\Promise\wait;
 
 class UpdateDocblockReturnTransformer implements Transformer
 {
@@ -87,7 +88,7 @@ class UpdateDocblockReturnTransformer implements Transformer
     private function methodsThatNeedFixing(SourceCode $code): array
     {
         $missingMethods = [];
-        $diagnostics = $this->reflector->diagnostics($code->__toString())->byClasses(MissingDocblockReturnTypeDiagnostic::class);
+        $diagnostics = wait($this->reflector->diagnostics($code->__toString()))->byClasses(MissingDocblockReturnTypeDiagnostic::class);
 
         foreach ($diagnostics as $diagnostic) {
             $missingMethods[] = $diagnostic;

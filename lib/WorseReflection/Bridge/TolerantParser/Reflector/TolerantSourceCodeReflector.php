@@ -2,6 +2,7 @@
 
 namespace Phpactor\WorseReflection\Bridge\TolerantParser\Reflector;
 
+use Amp\Promise;
 use Generator;
 use Microsoft\PhpParser\Node\SourceFileNode;
 use Phpactor\TextDocument\TextDocument;
@@ -25,6 +26,7 @@ use Phpactor\WorseReflection\Core\Inference\NodeReflector;
 use Phpactor\WorseReflection\Core\ServiceLocator;
 use Microsoft\PhpParser\Parser;
 use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection as TolerantReflectionFunctionCollection;
+use function Amp\call;
 
 class TolerantSourceCodeReflector implements SourceCodeReflector
 {
@@ -63,18 +65,20 @@ class TolerantSourceCodeReflector implements SourceCodeReflector
     }
 
     /**
-     * @return Diagnostics<Diagnostic>
+     * @return Promise<Diagnostics<Diagnostic>>
      */
-    public function diagnostics(SourceCode|TextDocument|string $sourceCode): Diagnostics
+    public function diagnostics(SourceCode|TextDocument|string $sourceCode): Promise
     {
         $sourceCode = SourceCode::fromUnknown($sourceCode);
         return $this->serviceLocator->cache()->getOrSet(
             'diagnoistics__' . $sourceCode->__toString(),
-            function () use ($sourceCode): Diagnostics {
-                $rootNode = $this->parseSourceCode($sourceCode);
-                $walker = $this->serviceLocator->newDiagnosticsWalker();
-                $this->serviceLocator->frameBuilder()->withWalker($walker)->build($rootNode);
-                return $walker->diagnostics();
+            function () use ($sourceCode): Promise {
+                return call(function () use ($sourceCode) {
+                    $rootNode = $this->parseSourceCode($sourceCode);
+                    $walker = $this->serviceLocator->newDiagnosticsWalker();
+                    yield from $this->serviceLocator->frameBuilder()->withWalker($walker)->buildGenerator($rootNode);
+                    return $walker->diagnostics();
+                });
             }
         );
     }

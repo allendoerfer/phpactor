@@ -2,10 +2,10 @@
 
 namespace Phpactor\WorseReflection\Core\Reflector\SourceCode;
 
+use Amp\Promise;
 use Generator;
 use Phpactor\TextDocument\TextDocument;
 use Phpactor\WorseReflection\Bridge\TolerantParser\Reflection\ReflectionNavigation;
-use Phpactor\WorseReflection\Core\Diagnostics;
 use Phpactor\WorseReflection\Core\Inference\Walker;
 use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionDeclaredConstantCollection;
 use Phpactor\WorseReflection\Core\Reflection\Collection\ReflectionFunctionCollection;
@@ -70,7 +70,7 @@ class ContextualSourceCodeReflector implements SourceCodeReflector
         return $this->innerReflector->navigate($sourceCode);
     }
 
-    public function diagnostics($sourceCode): Diagnostics
+    public function diagnostics($sourceCode): Promise
     {
         $sourceCode = SourceCode::fromUnknown($sourceCode);
         $this->locator->pushSourceCode($sourceCode);
